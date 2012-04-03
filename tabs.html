@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<title>Tabs demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="tabs.js"></script>
+<script>
+$(document).ready(function() {
+	$('.tabDemo').tabs();
+});
+var tabChange = function(id){
+	$('#tab2_message').text('Selected tab: ' + id).show().css('opacity', 1).stop().delay(1000).fadeOut('slow');
+
+}
+</script>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	margin: 20px auto;
+	width: 200px;
+}
+
+.tabDemo {
+	margin: 0 0 -1px 0;
+	padding: 0;
+	height: 21px;
+}
+
+.tabDemo li {
+	display: inline;
+	border: 1px solid #ccc;
+	border-top: 3px solid #999;
+	background: #eee;
+	padding: 0 10px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.tabDemo a {
+	text-decoration: none;
+	color: #333;
+	font: bold 14px sans-serif;
+}
+
+.tabDemo .tab_selected {
+	background: #fff;
+	border-bottom-color: #fff;
+	border-top-color: #f90;
+}
+
+.tab_content {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+#tab2_message { margin:5px; padding:5px; border-radius:5px; text-align:center; color:#fff; background: #333; font: 12px sans-serif; }
+</style>
+</head>
+<body>
+<div class="content">
+	<h1>Tab demos</h1>
+	<h3>About</h3>
+	<p>Author: Predrag Krstić</p>
+	<p>Site: <a href="http://www.zmajevognezdo.com">ZmajevoGnezdo.com</a></p>
+	<p>Licence: BeerWare</p>
+	<h3>Usage</h3>
+	<code>
+	$('.tab').tabs();
+	</code>
+	<h3>Options</h3>
+	<h2>Default settings</h2>
+	<ul class="tabDemo">
+		<li class="tab_selected"><a href="#tab1_1">Tab 1</a></li>
+		<li><a href="#tab1_2">Tab 2</a></li>
+		<li><a href="#tab1_3">Tab 3</a></li>
+	</ul>
+	<div id="tab1_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
+	<div id="tab1_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
+	<div id="tab1_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. 
+		Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+	
+	<h2>Callback demo</h2>
+	<ul class="tabDemo" data-onchange="tabChange">
+		<li class="tab_selected"><a href="#tab2_1">Tab 1</a></li>
+		<li><a href="#tab2_2">Tab 2</a></li>
+		<li><a href="#tab2_3">Tab 3</a></li>
+	</ul>
+	<div id="tab2_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
+	<div id="tab2_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
+	<div id="tab2_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. 
+		Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+	<div id="tab2_message"></div>
+</div>
+</body>
+</html>
