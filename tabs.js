@@ -5,42 +5,58 @@
  * 
  */
 ;(function($){
-    $.fn.tabs = function(o) {		
+    $.fn.tabs = function(options) {
+    	var globalOptions = $.extend({
+			tabs: 'a',
+			selectedClass: 'tab_selected',
+			tabContent: '.tab_content',
+			onChange: function(id){},
+			zSwitch: false
+    	}, options);
+    	console.log(globalOptions);
 		return this.each(function() {
 	    	var self = this,
-	    		options = {
-					tabs: $(self).data('tabs') || 'a',
-					selectedClass: $(self).data('selectedclass') || 'tab_selected',
-					tabContent: $(self).data('content') || '.tab_content',
-					onChange: $(self).data('onchange') || false,
-					zSwitch: $(self).data('zswitch') || false
+	    		o = {
+					tabs: $(self).data('tabs') || globalOptions.tabs,
+					selectedClass: $(self).data('selectedclass') || globalOptions.selectedClass,
+					tabContent: $(self).data('tabcontent') || globalOptions.tabContent,
+					onChange: $(self).data('onchange') || globalOptions.onChange,
+					zSwitch: $(self).data('zswitch') || globalOptions.zSwitch
 				};
+
+	    	console.log($(self).data('zswitch'));
 	    	
-			$(options.tabs, self).click(function(e){
+	    	$(o.tabs, self).click(function(e){
 				
-				var parent = $(this).parent();
-				$(parent).siblings().removeClass(options.selectedClass);
-				$(parent).addClass(options.selectedClass);
+				var parent = $(this).parent(),
+					id = $(this).attr('href');
 				
-				var id = $(this).attr('href');
-				
-				if(typeof options.onChange === 'string') { 
-					eval(options.onChange+'(id)'); 
-				}
-				
-				if (options.zSwitch) {
-					$(options.tabContent).css({zIndex:'0'});
-					$(id).css({zIndex:'999'});
+				$(parent).siblings().removeClass(o.selectedClass);
+				$(parent).addClass(o.selectedClass);
+								
+				if(typeof(o.onChange) == 'string') { 
+					eval(o.onChange+'(id)'); 
 				}
 				else {
-					$(options.tabs, self).each(function(){ var id = $(this).attr('href'); $(id).hide(); });
+					o.onChange(id);
+				}
+				
+				if (o.zSwitch) {
+					$(o.tabContent).css('zIndex', '0');
+					$(id).css('zIndex', '999');
+				}
+				else {
+					$(o.tabs, self).each(function(){ 
+						var id = $(this).attr('href'); 
+						$(id).hide(); 
+					});
 					$(id).show();
 				}
 				
 				return false;
 			});
 			
-			$('.'+options.selectedClass+' a', self).click();
+			$('.'+ o.selectedClass +' a', self).click();
         });
     };
 })(jQuery);
