@@ -1,7 +1,14 @@
 /**
+ * Tabs jQuery plugin
+ * https://github.com/pkrstic/tabs
+ *
+ * Copyright 2012, Predrag Krstic
+ * Licensed under the MIT license.
+ * see LICENSE.txt
+ *
  * @author Predrag Krstic
  * 
- * @example $('.tabs').tabs();
+ * @verson 1.0
  * 
  */
 ;(function($){

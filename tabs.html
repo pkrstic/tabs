@@ -1,100 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Tabs demo</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="tabs.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="tabs.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="tabs.js"></script>
 <script>
-$(document).ready(function() {
-	$('.tabDemo').tabs();
-});
-var tabChange = function(id){
-	$('#tab2_message').text('Selected tab: ' + id).show().css('opacity', 1).stop().delay(1000).fadeOut('slow');
-
-}
+	$(document).ready(function() {
+		$('.tabs').tabs();
+		$('#tab2_message').hide();
+	});
+	var tabChange = function(id) {
+		
+		$('#tab2_message')
+			.text('Selected tab: ' + id)
+			.show()
+			.css('opacity', 1)
+			.stop()
+			.delay(1000)
+			.fadeOut('slow');
+	}
 </script>
-<style>
-body {
-	margin: 0;
-	padding: 0;
-}
-
-.content {
-	margin: 20px auto;
-	width: 200px;
-}
-
-.tabDemo {
-	margin: 0 0 -1px 0;
-	padding: 0;
-	height: 21px;
-}
-
-.tabDemo li {
-	display: inline;
-	border: 1px solid #ccc;
-	border-top: 3px solid #999;
-	background: #eee;
-	padding: 0 10px;
-	height: 22px;
-	line-height: 22px;
-}
-
-.tabDemo a {
-	text-decoration: none;
-	color: #333;
-	font: bold 14px sans-serif;
-}
-
-.tabDemo .tab_selected {
-	background: #fff;
-	border-bottom-color: #fff;
-	border-top-color: #f90;
-}
-
-.tab_content {
-	border: 1px solid #ccc;
-	padding: 10px;
-}
-
-#tab2_message { margin:5px; padding:5px; border-radius:5px; text-align:center; color:#fff; background: #333; font: 12px sans-serif; }
-</style>
 </head>
 <body>
 <div class="content">
-	<h1>Tab demos</h1>
-	<h3>About</h3>
-	<p>Author: Predrag Krstić</p>
-	<p>Site: <a href="http://www.zmajevognezdo.com">ZmajevoGnezdo.com</a></p>
-	<p>Licence: BeerWare</p>
-	<h3>Usage</h3>
-	<code>
-	$('.tab').tabs();
-	</code>
-	<h3>Options</h3>
-	<h2>Default settings</h2>
-	<ul class="tabDemo">
-		<li class="tab_selected"><a href="#tab1_1">Tab 1</a></li>
-		<li><a href="#tab1_2">Tab 2</a></li>
-		<li><a href="#tab1_3">Tab 3</a></li>
-	</ul>
-	<div id="tab1_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
-	<div id="tab1_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
-	<div id="tab1_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. 
-		Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+<h1 class="title">Tab demos</h1>
+
+<ul class="tabMain tabs" data-tabContent="demoContent">
+	<li class="tab_selected"><a href="#demoAbout">About</a></li>
+	<li><a href="#demoDefault">Default settings</a></li>
+	<li><a href="#demoCallback">Callback demo</a></li>
+	<li><a href="#demoZSwitch">zSwitch</a></li>
+</ul>
+
+<div id="demoAbout" class="demoContent">
+	<p><b>Options</b></p>
+	<p>Options can be set as object atributes trough javascript and/or trough markup, as attributes, or both.</p>
+	<p>In case when we use both, markup options precedes javascript.</p>
+	<dl>
+		<dt>tabs / data-tabs</dt>
+		<dd>Tab selector, it must be anchor tag ('a'), since <em>href</em> attribute content is used for destination element, which will be shown.<br>
+		Default value (string): 'a'</dd>
 	
-	<h2>Callback demo</h2>
-	<ul class="tabDemo" data-onchange="tabChange">
-		<li class="tab_selected"><a href="#tab2_1">Tab 1</a></li>
-		<li><a href="#tab2_2">Tab 2</a></li>
-		<li><a href="#tab2_3">Tab 3</a></li>
+		<dt>selectedClass / data-selectedclass</dt>
+		<dd>CSS class, assigned to selected tab.<br>
+		Default value (string): 'tab_selected'</dd>
+	
+		<dt>tabContent / data-tabcontent</dt>
+		<dd>Default: '.tab_content'</dd>
+	
+		<dt>onChange / data-onchange</dt>
+		<dd>Default: function(id){}</dd>
+	
+		<dt>zSwitch / data-zswitch</dt>
+		<dd>Default: false</dd>
+	</dl>
+</div>
+
+<div id="demoDefault" class="demoContent">
+<p><b>Example</b></p> 
+<pre>
+$('.tabs').tabs();
+</pre>
+
+<ul class="tabs">
+	<li class="tab_selected"><a href="#tab1_1">Lorem</a></li>
+	<li><a href="#tab1_2">Ipsum</a></li>
+	<li><a href="#tab1_3">Dolor</a></li>
+</ul>
+
+<div id="tab1_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
+<div id="tab1_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
+<div id="tab1_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+
+</div>
+
+<div id="demoCallback" class="demoContent">
+<p><b>Example</b></p> 
+<p>Callback function</p>
+<pre>
+function tabChange(id){
+	// do something 
+}
+</pre>
+<p>Plugin init</p>
+<pre>
+$('.tabs').tabs({
+	onChange: tabChange
+});
+</pre>
+<p>or set markup call</p>
+<pre>
+&lt;ul class="tabs" <b>data-onchange</b>="tabChange"&gt;
+</pre>
+
+<ul class="tabs" data-onchange="tabChange">
+	<li class="tab_selected"><a href="#tab2_1">Tab 1</a></li>
+	<li><a href="#tab2_2">Tab 2</a></li>
+	<li><a href="#tab2_3">Tab 3</a></li>
+</ul>
+<div id="tab2_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
+<div id="tab2_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
+<div id="tab2_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+<div id="tab2_message"></div>
+
+</div>
+
+<div id="demoZSwitch" class="demoContent">
+<p><b>Example</b></p> 
+<pre>
+$('.tabs').tabs({
+	zSwitch: true
+});
+</pre>
+<p>or set markup call</p>
+<pre>
+&lt;ul class="tabs" <b>data-zswitch</b>="true" <b>data-tabcontent</b>="tab_content"&gt;
+</pre>
+	<ul class="tabs" data-zswitch="true" data-tabcontent="tab_contentZ">
+		<li class="tab_selected"><a href="#tab3_1">Tab 1</a></li>
+		<li><a href="#tab3_2">Tab 2</a></li>
+		<li><a href="#tab3_3">Tab 3</a></li>
 	</ul>
-	<div id="tab2_1" class="tab_content">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
-	<div id="tab2_2" class="tab_content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
-	<div id="tab2_3" class="tab_content">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. 
-		Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
-	<div id="tab2_message"></div>
+	<div class="tabZ tab_content">
+		<div id="tab3_1" class="tab_contentZ" style="background:#def">Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.</div>
+		<div id="tab3_2" class="tab_contentZ" style="background:#dfe">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor.</div>
+		<div id="tab3_3" class="tab_contentZ" style="background:#fde">Sed posuere consectetur est at lobortis. Donec sed odio dui. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod.</div>
+	</div>
+</div>
+
 </div>
 </body>
 </html>
