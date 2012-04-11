@@ -40,21 +40,32 @@
 	<p>In case when we use both, markup options precedes javascript.</p>
 	<dl>
 		<dt>tabs / data-tabs</dt>
-		<dd>Tab selector, it must be anchor tag ('a'), since <em>href</em> attribute content is used for destination element, which will be shown.<br>
+		<dd>Tab selector, it must be anchor tag ('a'), 
+		since <em>href</em> attribute content is used for destination 
+		element, which will be shown.<br>
 		Default value (string): 'a'</dd>
 	
 		<dt>selectedClass / data-selectedclass</dt>
 		<dd>CSS class, assigned to selected tab.<br>
 		Default value (string): 'tab_selected'</dd>
 	
-		<dt>tabContent / data-tabcontent</dt>
-		<dd>Default: '.tab_content'</dd>
-	
 		<dt>onChange / data-onchange</dt>
-		<dd>Default: function(id){}</dd>
+		<dd>Callback function called before tab show. Tab content id is 
+		passed as parameter. In javascript it can be passed anonymous function, 
+		in case when we passing function name trough atribute, we can use 
+		only function name.<br>
+		Default (function or string): function(id){}</dd>
 	
 		<dt>zSwitch / data-zswitch</dt>
-		<dd>Default: false</dd>
+		<dd>Used when we want to change tab content visibilty by changeing
+		zIndex, this way we never hide some element, just push it to the back.
+		Useful for content with images, since every browser optimizes image 
+		loading, and skips loading of hidden images.<br>
+		Default (bool): false</dd>
+
+		<dt>tabContent / data-tabcontent</dt>
+		<dd>Used with previous param, to define selector for tab content.<br>
+		Default (string): '.tab_content'</dd>	
 	</dl>
 </div>
 
