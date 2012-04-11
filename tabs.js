@@ -20,7 +20,7 @@
 			onChange: function(id){},
 			zSwitch: false
     	}, options);
-    	console.log(globalOptions);
+
 		return this.each(function() {
 	    	var self = this,
 	    		o = {
