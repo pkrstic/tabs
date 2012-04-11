@@ -30,8 +30,6 @@
 					onChange: $(self).data('onchange') || globalOptions.onChange,
 					zSwitch: $(self).data('zswitch') || globalOptions.zSwitch
 				};
-
-	    	console.log($(self).data('zswitch'));
 	    	
 	    	$(o.tabs, self).click(function(e){
 				
