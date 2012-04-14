@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Tabs by pkrstic</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Tabs</h1>
+        <p>Tabs - jQuery plugin</p>
+        <p class="view"><a href="https://github.com/pkrstic/tabs">View the Project on GitHub <small>pkrstic/tabs</small></a></p>
+        <ul>
+          <li><a href="https://github.com/pkrstic/tabs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pkrstic/tabs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pkrstic/tabs">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Tabs</h1>
+
+<p>Easy setup tabs that are SEO friendly. </p>
+
+<p><em>Please try it out in a project, and <a href="/pkrstic/tabs/issues">make suggestions</a> or <a href="/pkrstic/tabs/issues">report bugs</a>!</em></p>
+
+<h2>Options</h2>
+
+<p>Options can be set as object attributes trough javascript and/or trough markup, as attributes, or both.</p>
+
+<p>In case when we use both, markup options precedes javascript.</p>
+
+<dl>
+<dt>tabs / data-tabs</dt>
+<dd>Tab selector, it must be <b>A</b> tag, since <b>href</b> attribute content is used for destination element, which will be shown.<br>
+Type: string<br>
+Default: 'a'
+</dd>
+<dt>selectedClass / data-selectedclass</dt>
+<dd>CSS class, assigned to selected tab.<br>
+Type: string<br>
+Default: 'tab_selected'
+</dd>
+<dt>onChange / data-onchange</dt>
+<dd>Callback function called before tab show. Tab content id is passed as parameter. In javascript it can be passed anonymous function, in case when we passing function name trough attribute, we can use only function name.<br>
+Type: function or string<br>
+Default: function(id){}
+</dd>
+<dt>zSwitch / data-zswitch</dt>
+<dd>Used when we want to change tab content visibility by changing zIndex, this way we never hide some element, just push it to the back. Useful for content with images, since every browser optimizes image loading, and skips loading of hidden images.<br>
+Type: bool<br>
+Default: false
+</dd>
+<dt>tabContent / data-tabcontent</dt>
+<dd>Used with previous param, to define selector for tab content.<br>
+Type: string<br>
+Default: '.tab_content'
+</dd>
+</dl><h2>Release History</h2>
+
+<ul>
+<li>2012-04-03 - v1.0.0 - Initial release.</li>
+</ul><h2>License</h2>
+
+<p>Copyright (c) 2012 Predrag Krstić<br>
+Licensed under the MIT license.  </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/pkrstic">pkrstic</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
