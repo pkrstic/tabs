@@ -4,7 +4,7 @@
 <title>Tabs demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" media="screen" href="tabs.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="tabs.js"></script>
 <script>
 	$(document).ready(function() {
@@ -12,7 +12,7 @@
 		$('#tab2_message').hide();
 	});
 	var tabChange = function(id) {
-		
+
 		$('#tab2_message')
 			.text('Selected tab: ' + id)
 			.show()
@@ -40,37 +40,37 @@
 	<p>In case when we use both, markup options precedes javascript.</p>
 	<dl>
 		<dt>tabs / data-tabs</dt>
-		<dd>Tab selector, it must be anchor tag ('a'), 
-		since <em>href</em> attribute content is used for destination 
+		<dd>Tab selector, it must be anchor tag ('a'),
+		since <em>href</em> attribute content is used for destination
 		element, which will be shown.<br>
 		Default value (string): 'a'</dd>
-	
+
 		<dt>selectedClass / data-selectedclass</dt>
 		<dd>CSS class, assigned to selected tab.<br>
 		Default value (string): 'tab_selected'</dd>
-	
+
 		<dt>onChange / data-onchange</dt>
-		<dd>Callback function called before tab show. Tab content id is 
-		passed as parameter. In javascript it can be passed anonymous function, 
-		in case when we passing function name trough atribute, we can use 
+		<dd>Callback function called before tab show. Tab content id is
+		passed as parameter. In javascript it can be passed anonymous function,
+		in case when we passing function name trough atribute, we can use
 		only function name.<br>
 		Default (function or string): function(id){}</dd>
-	
+
 		<dt>zSwitch / data-zswitch</dt>
 		<dd>Used when we want to change tab content visibilty by changeing
 		zIndex, this way we never hide some element, just push it to the back.
-		Useful for content with images, since every browser optimizes image 
+		Useful for content with images, since every browser optimizes image
 		loading, and skips loading of hidden images.<br>
 		Default (bool): false</dd>
 
 		<dt>tabContent / data-tabcontent</dt>
 		<dd>Used with previous param, to define selector for tab content.<br>
-		Default (string): '.tab_content'</dd>	
+		Default (string): '.tab_content'</dd>
 	</dl>
 </div>
 
 <div id="demoDefault" class="demoContent">
-<p><b>Example</b></p> 
+<p><b>Example</b></p>
 <pre>
 $('.tabs').tabs();
 </pre>
@@ -88,11 +88,11 @@ $('.tabs').tabs();
 </div>
 
 <div id="demoCallback" class="demoContent">
-<p><b>Example</b></p> 
+<p><b>Example</b></p>
 <p>Callback function</p>
 <pre>
 function tabChange(id){
-	// do something 
+	// do something
 }
 </pre>
 <p>Plugin init</p>
@@ -119,7 +119,7 @@ $('.tabs').tabs({
 </div>
 
 <div id="demoZSwitch" class="demoContent">
-<p><b>Example</b></p> 
+<p><b>Example</b></p>
 <pre>
 $('.tabs').tabs({
 	zSwitch: true
